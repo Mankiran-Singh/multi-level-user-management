@@ -8,11 +8,11 @@ export class AuthService {
   constructor(private http: HttpClient) {}
 
   getCaptcha() {
-    return this.http.get(`${this.API}/captcha`);
+    return this.http.get(`${this.API}/captcha`, {withCredentials: true});
   }
 
   login(data: any) {
-    return this.http.post(`${this.API}/login`, data);
+    return this.http.post(`${this.API}/login`, data,{ withCredentials: true });
   }
 
   logout() {
@@ -20,6 +20,6 @@ export class AuthService {
   }
 
   me() {
-    return this.http.get(`http://localhost:5050/users/me`);
+    return this.http.get(`http://localhost:5050/users/me`, { withCredentials: true });
   }
 }

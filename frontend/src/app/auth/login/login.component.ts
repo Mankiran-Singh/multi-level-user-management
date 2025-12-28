@@ -7,7 +7,7 @@ import { AuthService } from '../../core/services/auth.service';
 import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
 import { Router } from '@angular/router';
-
+import * as CryptoJS from 'crypto-js';
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -16,7 +16,7 @@ import { Router } from '@angular/router';
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
- email = '';
+  email = '';
   password = '';
   captcha = '';
   captchaInput = '';
@@ -37,9 +37,10 @@ export class LoginComponent {
   }
 
   login() {
+    const hashedParams = CryptoJS.SHA256(this.password).toString();
     this.auth.login({
       email: this.email,
-      password: this.password,
+      password: hashedParams,
       captcha: this.captchaInput
     }).subscribe({
       next: () => this.router.navigate(['/dashboard']),
