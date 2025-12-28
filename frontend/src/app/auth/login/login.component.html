@@ -1,0 +1,24 @@
+<mat-card>
+  <h2>Login</h2>
+
+  <mat-form-field>
+    <input matInput placeholder="Email" [(ngModel)]="email">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput type="password" placeholder="Password" [(ngModel)]="password">
+  </mat-form-field>
+
+  <div class="captcha">
+    <span>{{ captcha }}</span>
+    <button mat-icon-button (click)="loadCaptcha()">
+      <mat-icon>refresh</mat-icon>
+    </button>
+  </div>
+
+  <mat-form-field>
+    <input matInput placeholder="Enter Captcha" [(ngModel)]="captchaInput">
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" (click)="login()">Login</button>
+</mat-card>
