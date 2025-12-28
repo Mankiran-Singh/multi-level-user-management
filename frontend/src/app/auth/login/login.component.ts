@@ -16,29 +16,34 @@ import { Router } from '@angular/router';
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
-  constructor(private auth: AuthService, private router: Router) {
+ email = '';
+  password = '';
+  captcha = '';
+  captchaInput = '';
+
+  constructor(
+    private auth: AuthService,
+    private router: Router
+  ) {}
+
+  ngOnInit() {
     this.loadCaptcha();
   }
-  
-  email: string = '';
-  password: string = '';
-  captcha: string = '';
-  captchaInput: string = '';
-login() {
-  this.auth.login({
-    email: this.email,
-    password: this.password,
-    captcha: this.captchaInput
-  }).subscribe({
-    next: () => this.router.navigate(['/dashboard']),
-    error: err => alert(err.error)
-  });
-}
 
-loadCaptcha() {
-  this.auth.getCaptcha().subscribe((res: any) => {
-    this.captcha = res.captcha;
-  });
-}
+  loadCaptcha() {
+    this.auth.getCaptcha().subscribe((res: any) => {
+      this.captcha = res.captcha;
+    });
+  }
 
+  login() {
+    this.auth.login({
+      email: this.email,
+      password: this.password,
+      captcha: this.captchaInput
+    }).subscribe({
+      next: () => this.router.navigate(['/dashboard']),
+      error: err => alert(err.error)
+    });
+  }
 }

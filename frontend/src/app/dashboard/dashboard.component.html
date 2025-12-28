@@ -1,0 +1,8 @@
+<mat-card>
+  <h2>Welcome {{ user?.name }}</h2>
+  <p>Balance: ₹{{ user?.balance }}</p>
+
+  <button mat-button routerLink="/wallet/recharge">Recharge</button>
+  <button mat-button routerLink="/wallet/credit">Credit User</button>
+  <button mat-button routerLink="/users/create">Create User</button>
+</mat-card>
