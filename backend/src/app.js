@@ -5,9 +5,14 @@ const authRoutes = require("./modules/auth/auth.routes");
 const adminRoutes = require("./modules/admin/admin.routes");
 const userRoutes = require("./modules/users/user.routes");
 const walletRoutes = require("./modules/wallet/wallet.routes");
-
+const cors = require("cors");
 
 const app = express();
+
+app.use(cors({
+  origin: "http://localhost:4200", 
+  credentials: true                // Required for cookies/sessions to work
+}));
 
 app.use(express.json());
 app.use(cookieParser());
