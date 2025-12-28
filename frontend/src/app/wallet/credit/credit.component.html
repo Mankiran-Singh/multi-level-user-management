@@ -1,1 +1,15 @@
-<p>credit works!</p>
+<mat-card>
+  <h2>Credit Child Wallet</h2>
+
+  <mat-form-field class="full">
+    <input matInput placeholder="Child User ID" [(ngModel)]="childId">
+  </mat-form-field>
+
+  <mat-form-field class="full">
+    <input matInput type="number" placeholder="Amount" [(ngModel)]="amount">
+  </mat-form-field>
+
+  <button mat-raised-button color="accent" (click)="credit()">
+    Credit
+  </button>
+</mat-card>
