@@ -3,7 +3,8 @@ const cookieParser = require("cookie-parser");
 const session = require("express-session");
 const authRoutes = require("./modules/auth/auth.routes");
 const adminRoutes = require("./modules/admin/admin.routes");
-const userRoutes = require("./modules/users/users.routes");
+const userRoutes = require("./modules/users/user.routes");
+const walletRoutes = require("./modules/wallet/wallet.routes");
 
 
 const app = express();
@@ -28,5 +29,6 @@ app.use((req, res, next) => {
 app.use("/auth", authRoutes);
 app.use("/admin", adminRoutes);
 app.use("/users", userRoutes);
+app.use("/wallet", walletRoutes);
 
 module.exports = app;
