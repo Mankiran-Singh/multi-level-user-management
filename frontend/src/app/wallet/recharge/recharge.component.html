@@ -1,1 +1,11 @@
-<p>recharge works!</p>
+<mat-card>
+  <h2>Recharge Wallet</h2>
+
+  <mat-form-field class="full">
+    <input matInput type="number" placeholder="Amount" [(ngModel)]="amount">
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" (click)="recharge()">
+    Recharge
+  </button>
+</mat-card>
