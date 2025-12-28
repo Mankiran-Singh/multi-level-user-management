@@ -1,1 +1,19 @@
-<p>create-user works!</p>
+<mat-card>
+  <h2>Create Next-Level User</h2>
+
+  <mat-form-field appearance="outline" class="full">
+    <input matInput placeholder="Name" [(ngModel)]="name">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full">
+    <input matInput placeholder="Email" [(ngModel)]="email">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full">
+    <input matInput type="password" placeholder="Password" [(ngModel)]="password">
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" (click)="createUser()">
+    Create User
+  </button>
+</mat-card>
