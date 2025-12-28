@@ -1,15 +1,36 @@
-<mat-card>
-  <h2>Credit Child Wallet</h2>
+<div class="credit-container">
+  <mat-card>
+    <h2>Credit Child Wallet</h2>
 
-  <mat-form-field class="full">
-    <input matInput placeholder="Child User ID" [(ngModel)]="childId">
-  </mat-form-field>
+    <!-- Dropdown -->
+    <mat-form-field appearance="outline" class="full">
+      <mat-label>Select Child User</mat-label>
+    <mat-select [(ngModel)]="selectedChildId">
+  @for (user of children; track user._id) {
+    <mat-option [value]="user._id">
+      {{ user.name }} ({{ user.email }})
+    </mat-option>
+  } @empty {
+    <mat-option disabled>No children found</mat-option>
+  }
+</mat-select>
+    </mat-form-field>
 
-  <mat-form-field class="full">
-    <input matInput type="number" placeholder="Amount" [(ngModel)]="amount">
-  </mat-form-field>
+    <!-- Amount -->
+    <mat-form-field appearance="outline" class="full">
+      <input
+        matInput
+        type="number"
+        placeholder="Amount"
+        [(ngModel)]="amount">
+    </mat-form-field>
 
-  <button mat-raised-button color="accent" (click)="credit()">
-    Credit
-  </button>
-</mat-card>
+    <button
+      mat-raised-button
+      color="accent"
+      class="full"
+      (click)="credit()">
+      Credit
+    </button>
+  </mat-card>
+</div>

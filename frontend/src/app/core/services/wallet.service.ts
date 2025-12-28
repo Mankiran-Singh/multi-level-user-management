@@ -8,7 +8,7 @@ export class WalletService {
   constructor(private http: HttpClient) {}
 
   recharge(amount: number) {
-    return this.http.post(`${this.API}/recharge`, { amount });
+    return this.http.post(`${this.API}/recharge`, { amount }, { withCredentials: true });
   }
 
   credit(data: any) {

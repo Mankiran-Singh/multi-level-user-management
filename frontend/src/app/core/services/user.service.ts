@@ -16,6 +16,6 @@ export class UserService {
   }
 
   children() {
-    return this.http.get(`${this.API}/children`);
+    return this.http.get(`${this.API}/children`, { withCredentials: true });
   }
 }

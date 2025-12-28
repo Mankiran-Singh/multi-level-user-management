@@ -50,8 +50,9 @@ exports.login = async (req, res) => {
 
   res.cookie("token", token, {
     httpOnly: true,
-    secure: false,
-    sameSite: "lax",
+   secure: false,   // Must be false for localhost HTTP
+  sameSite: "lax", // Change from "strict" to "lax"
+  path: "/" ,       // Ensures the cookie is available for all routes
     maxAge: 15 * 60 * 1000 // 15 minutes
   });
 

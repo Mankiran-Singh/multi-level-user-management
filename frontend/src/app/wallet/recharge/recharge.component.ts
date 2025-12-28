@@ -3,11 +3,13 @@ import { WalletService } from '../../core/services/wallet.service';
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'app-recharge',
   standalone: true,
-  imports: [FormsModule, MatFormFieldModule, MatCardModule],
+  imports: [FormsModule, MatFormFieldModule, MatCardModule, MatButtonModule, MatInputModule],
   templateUrl: './recharge.component.html',
   styleUrl: './recharge.component.scss'
 })

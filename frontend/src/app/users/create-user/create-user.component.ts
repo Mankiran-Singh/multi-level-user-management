@@ -3,11 +3,13 @@ import { UserService } from '../../core/services/user.service';
 import { MatFormField } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
 import { FormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-create-user',
   standalone: true,
-  imports: [MatFormField,MatCardModule, FormsModule],
+  imports: [MatFormField,MatCardModule, FormsModule, MatInputModule, MatButtonModule],
   templateUrl: './create-user.component.html',
   styleUrl: './create-user.component.scss'
 })
