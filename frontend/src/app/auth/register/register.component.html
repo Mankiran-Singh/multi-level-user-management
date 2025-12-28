@@ -1,0 +1,43 @@
+<div class="center-container-register">
+    <mat-card class="auth-card">
+  <h2>Register</h2>
+
+  <mat-form-field appearance="outline" class="full">
+    <input matInput placeholder="Name" [(ngModel)]="name">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full">
+    <input matInput placeholder="Email" [(ngModel)]="email">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full">
+    <input
+      matInput
+      type="password"
+      placeholder="Password"
+      [(ngModel)]="password">
+  </mat-form-field>
+
+  <!-- Optional -->
+  <!-- <mat-form-field appearance="outline" class="full">
+    <mat-select [(ngModel)]="role">
+      <mat-option value="ADMIN">Admin</mat-option>
+      <mat-option value="USER">User</mat-option>
+    </mat-select>
+  </mat-form-field> -->
+
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="register()"
+    class="full">
+    Register
+  </button>
+
+  <p class="link">
+    Already have an account?
+    <a routerLink="/login">Login</a>
+  </p>
+</mat-card>
+
+</div>

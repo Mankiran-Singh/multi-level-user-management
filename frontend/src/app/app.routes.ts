@@ -7,10 +7,11 @@ import { DownlineComponent } from './users/downline/downline.component';
 import { RechargeComponent } from './wallet/recharge/recharge.component';
 import { CreditComponent } from './wallet/credit/credit.component';
 import { StatementComponent } from './wallet/statement/statement.component';
+import { RegisterComponent } from './auth/register/register.component';
 
 export const routes: Routes = [
    { path: 'login', component: LoginComponent },
-
+{ path: 'register', component: RegisterComponent },
   {
     path: '',
     canActivate: [authGuard],

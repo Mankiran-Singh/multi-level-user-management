@@ -19,6 +19,10 @@ export class AuthService {
     return this.http.post(`${this.API}/logout`, {});
   }
 
+    register(data: any) {
+    return this.http.post(`${this.API}/register`, data);
+    }
+
   me() {
     return this.http.get(`http://localhost:5050/users/me`, { withCredentials: true });
   }

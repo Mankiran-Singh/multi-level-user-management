@@ -2,3 +2,17 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.auth-card {
+  max-width: 400px;
+  margin: 60px auto;
+}
+
+.full {
+  width: 100%;
+}
+
+.link {
+  margin-top: 10px;
+  text-align: center;
+}
