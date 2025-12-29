@@ -19,7 +19,6 @@ exports.register = async (req, res) => {
 const jwt = require("jsonwebtoken");
 
 exports.login = async (req, res) => {
-    console.log("🔥 Login attempt");
   const { email, password, captcha } = req.body;
 
   // 1️ CAPTCHA validation

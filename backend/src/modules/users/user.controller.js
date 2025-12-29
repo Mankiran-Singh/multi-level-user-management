@@ -3,7 +3,6 @@ const User = require("./user.model");
 
 // Create next-level user only
 exports.createUser = async (req, res) => {
-    console.log("🔥 Creating next-level user");
   const { name, email, password } = req.body;
 
   const existing = await User.findOne({ email });

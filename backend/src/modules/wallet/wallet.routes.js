@@ -8,7 +8,6 @@ const {
   selfRecharge
 } = require("./wallet.controller");
 
-console.log("🔥 WALLET ROUTES LOADED");
 router.use(auth);
 
 router.post("/credit", creditChild);

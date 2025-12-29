@@ -27,6 +27,9 @@ export class RegisterComponent {
   ) {}
 
   register() {
+     if (!this.name || !this.email || !this.password) {
+    return;
+  }
     this.auth.register({
       name: this.name,
       email: this.email,

@@ -6,11 +6,12 @@ import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { BackButtonComponent } from '../../shared/back-button/back-button.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-create-user',
   standalone: true,
-  imports: [MatFormField,MatCardModule, FormsModule, MatInputModule, MatButtonModule, BackButtonComponent],
+  imports: [MatFormField,MatCardModule, FormsModule, MatInputModule, MatButtonModule, BackButtonComponent, CommonModule],
   templateUrl: './create-user.component.html',
   styleUrl: './create-user.component.scss'
 })

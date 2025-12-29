@@ -32,10 +32,9 @@ export class CreditComponent {
   }
 
   loadChildren() {
-    console.log('Loading children...');
     this.userService.children().subscribe({
       next: (res) => {
-        console.log('Children loaded:', res);
+        
         this.children = res;
       },
       error: (err) => alert(err.error?.error || err.error)
