@@ -5,11 +5,12 @@ import { MatTableModule } from '@angular/material/table';
 import { DatePipe } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
+import { BackButtonComponent } from '../../shared/back-button/back-button.component';
 
 @Component({
   selector: 'app-statement',
   standalone: true,
-  imports: [MatCardModule, MatTableModule, DatePipe, MatButtonModule, MatInputModule],
+  imports: [MatCardModule, MatTableModule, DatePipe, MatButtonModule, MatInputModule, BackButtonComponent],
   templateUrl: './statement.component.html',
   styleUrl: './statement.component.scss'
 })

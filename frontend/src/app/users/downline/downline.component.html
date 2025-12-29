@@ -1,25 +1,28 @@
-<mat-card>
-  <h2>My Downline</h2>
-
-  <table mat-table [dataSource]="users" class="mat-elevation-z8 full">
-
-    <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef>Name</th>
-      <td mat-cell *matCellDef="let u">{{ u.name }}</td>
-    </ng-container>
-
-    <ng-container matColumnDef="email">
-      <th mat-header-cell *matHeaderCellDef>Email</th>
-      <td mat-cell *matCellDef="let u">{{ u.email }}</td>
-    </ng-container>
-
-    <ng-container matColumnDef="balance">
-      <th mat-header-cell *matHeaderCellDef>Balance</th>
-      <td mat-cell *matCellDef="let u">₹{{ u.balance }}</td>
-    </ng-container>
-
-    <tr mat-header-row *matHeaderRowDef="['name','email','balance']"></tr>
-    <tr mat-row *matRowDef="let row; columns: ['name','email','balance'];"></tr>
-
-  </table>
-</mat-card>
+<div class="downline-container">
+<app-back-button class="back-btn"></app-back-button>
+    <mat-card>
+      <h2>My Downline</h2>
+    
+      <table mat-table [dataSource]="users" class="mat-elevation-z8 full">
+    
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>Name</th>
+          <td mat-cell *matCellDef="let u">{{ u.name }}</td>
+        </ng-container>
+    
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef>Email</th>
+          <td mat-cell *matCellDef="let u">{{ u.email }}</td>
+        </ng-container>
+    
+        <ng-container matColumnDef="balance">
+          <th mat-header-cell *matHeaderCellDef>Balance</th>
+          <td mat-cell *matCellDef="let u">₹{{ u.balance }}</td>
+        </ng-container>
+    
+        <tr mat-header-row *matHeaderRowDef="['name','email','balance']"></tr>
+        <tr mat-row *matRowDef="let row; columns: ['name','email','balance'];"></tr>
+    
+      </table>
+    </mat-card>
+</div>

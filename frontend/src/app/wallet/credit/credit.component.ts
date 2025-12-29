@@ -8,11 +8,12 @@ import { MatInputModule } from '@angular/material/input';
 import { UserService } from '../../core/services/user.service';
 import { MatSelectModule } from '@angular/material/select';
 import { CommonModule } from '@angular/common';
+import { BackButtonComponent } from "../../shared/back-button/back-button.component";
 
 @Component({
   selector: 'app-credit',
   standalone: true,
-  imports: [MatFormFieldModule, MatCardModule, FormsModule, MatButtonModule, MatInputModule, MatSelectModule, CommonModule],
+  imports: [MatFormFieldModule, MatCardModule, FormsModule, MatButtonModule, MatInputModule, MatSelectModule, CommonModule, BackButtonComponent],
   templateUrl: './credit.component.html',
   styleUrl: './credit.component.scss'
 })

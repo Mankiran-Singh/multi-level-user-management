@@ -4,7 +4,7 @@ html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .auth-card {
-  max-width: 400px;
+//   max-width: 400px;
   margin: 60px auto;
 }
 
@@ -15,4 +15,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .link {
   margin-top: 10px;
   text-align: center;
+}
+
+app-back-button {
+  position: absolute;
+  top: -40px;
+  left: 0;
 }

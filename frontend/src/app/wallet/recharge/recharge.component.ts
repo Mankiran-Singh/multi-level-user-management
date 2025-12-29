@@ -5,11 +5,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
+import { BackButtonComponent } from "../../shared/back-button/back-button.component";
 
 @Component({
   selector: 'app-recharge',
   standalone: true,
-  imports: [FormsModule, MatFormFieldModule, MatCardModule, MatButtonModule, MatInputModule],
+  imports: [FormsModule, MatFormFieldModule, MatCardModule, MatButtonModule, MatInputModule, BackButtonComponent],
   templateUrl: './recharge.component.html',
   styleUrl: './recharge.component.scss'
 })
