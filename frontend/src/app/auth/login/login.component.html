@@ -1,31 +1,94 @@
 <div class="center-container">
-    <mat-card>
-  <h2>Login</h2>
+  <mat-card>
+    <h2>Login</h2>
 
-  <mat-form-field>
-    <input matInput placeholder="Email" [(ngModel)]="email">
-  </mat-form-field>
+   
+    <form #loginForm="ngForm" (ngSubmit)="login()">
 
-  <mat-form-field>
-    <input matInput type="password" placeholder="Password" [(ngModel)]="password">
-  </mat-form-field>
+      <mat-form-field appearance="outline" class="full">
+        <input
+          matInput
+          placeholder="Email"
+          name="email"
+          [(ngModel)]="email"
+          required
+          email
+          #emailRef="ngModel">
 
-  <div class="captcha">
-    <span>{{ captcha }}</span>
-    <button mat-icon-button (click)="loadCaptcha()">
-      <mat-icon>refresh</mat-icon>
-    </button>
-  </div>
+        <mat-error *ngIf="emailRef.invalid && emailRef.touched">
+          <span *ngIf="emailRef.errors?.['required']">
+            Email is required
+          </span>
+          <span *ngIf="emailRef.errors?.['email']">
+            Enter a valid email
+          </span>
+        </mat-error>
+      </mat-form-field>
 
-  <mat-form-field>
-    <input matInput placeholder="Enter Captcha" [(ngModel)]="captchaInput">
-  </mat-form-field>
+     
+      <mat-form-field appearance="outline" class="full">
+        <input
+          matInput
+          type="password"
+          placeholder="Password"
+          name="password"
+          [(ngModel)]="password"
+          required
+          minlength="6"
+          #passwordRef="ngModel">
 
-  <button mat-raised-button color="primary" (click)="login()">Login</button>
+        <mat-error *ngIf="passwordRef.invalid && passwordRef.touched">
+          <span *ngIf="passwordRef.errors?.['required']">
+            Password is required
+          </span>
+          <span *ngIf="passwordRef.errors?.['minlength']">
+            Minimum 6 characters required
+          </span>
+        </mat-error>
+      </mat-form-field>
 
-   <p class="link">
-    Don’t have an account?
-    <a routerLink="/register">Register</a>
-  </p>
-</mat-card>
+      <div class="captcha">
+        <span class="captcha-text">{{ captcha }}</span>
+        <button
+          type="button"
+          mat-icon-button
+          (click)="loadCaptcha()">
+          <mat-icon>refresh</mat-icon>
+        </button>
+      </div>
+
+      <mat-form-field appearance="outline" class="full">
+        <input
+          matInput
+          placeholder="Enter Captcha"
+          name="captchaInput"
+          [(ngModel)]="captchaInput"
+          required
+          minlength="5"
+          maxlength="5"
+          #captchaRef="ngModel">
+
+        <mat-error *ngIf="captchaRef.invalid && captchaRef.touched">
+          Captcha is required
+        </mat-error>
+      </mat-form-field>
+
+      
+      <button
+        mat-raised-button
+        color="primary"
+        class="full"
+        type="submit"
+        [disabled]="loginForm.invalid">
+        Login
+      </button>
+
+   
+      <p class="link">
+        Don’t have an account?
+        <a routerLink="/register">Register</a>
+      </p>
+
+    </form>
+  </mat-card>
 </div>

@@ -20,10 +20,10 @@ export class NavbarComponent {
   ) {}
 
   ngOnInit() {
-    this.auth.me().subscribe({
-      next: (res) => this.user = res,
-      error: () => {}
-    });
+    // this.auth.me().subscribe({
+    //   next: (res) => this.user = res,
+    //   error: () => {}
+    // });
   }
 
   logout() {

@@ -8,10 +8,11 @@ import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
 import { Router, RouterModule } from '@angular/router';
 import * as CryptoJS from 'crypto-js';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule, MatFormFieldModule, MatInputModule, MatButtonModule, ReactiveFormsModule, MatCardModule, MatIconModule, RouterModule],
+  imports: [FormsModule, MatFormFieldModule, MatInputModule, MatButtonModule, ReactiveFormsModule, MatCardModule, MatIconModule, RouterModule, CommonModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
@@ -36,15 +37,19 @@ export class LoginComponent {
     });
   }
 
-  login() {
-    // const hashedParams = CryptoJS.SHA256(this.password).toString();
-    this.auth.login({
-      email: this.email,
-      password: this.password,
-      captcha: this.captchaInput
-    }).subscribe({
-      next: () => this.router.navigate(['/dashboard']),
-      error: err => alert(err.error)
-    });
+ login() {
+  if (!this.email || !this.password || !this.captchaInput) {
+    return;
   }
+
+  this.auth.login({
+    email: this.email,
+    password: this.password,
+    captcha: this.captchaInput
+  }).subscribe({
+    next: () => this.router.navigate(['/dashboard']),
+    error: err => alert(err.error)
+  });
+}
+
 }

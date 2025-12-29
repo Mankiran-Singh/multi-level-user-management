@@ -1,43 +1,89 @@
 <div class="center-container-register">
-    <mat-card class="auth-card">
-  <h2>Register</h2>
+  <mat-card class="auth-card">
+    <h2>Register</h2>
 
-  <mat-form-field appearance="outline" class="full">
-    <input matInput placeholder="Name" [(ngModel)]="name">
-  </mat-form-field>
+    <form #registerForm="ngForm" (ngSubmit)="register()">
 
-  <mat-form-field appearance="outline" class="full">
-    <input matInput placeholder="Email" [(ngModel)]="email">
-  </mat-form-field>
+      <!-- NAME -->
+      <mat-form-field appearance="outline" class="full">
+        <input
+          matInput
+          placeholder="Name"
+          name="name"
+          [(ngModel)]="name"
+          required
+          minlength="3"
+          #nameRef="ngModel">
 
-  <mat-form-field appearance="outline" class="full">
-    <input
-      matInput
-      type="password"
-      placeholder="Password"
-      [(ngModel)]="password">
-  </mat-form-field>
+        <mat-error *ngIf="nameRef.invalid && nameRef.touched">
+          <span *ngIf="nameRef.errors?.['required']">
+            Name is required
+          </span>
+          <span *ngIf="nameRef.errors?.['minlength']">
+            Minimum 3 characters required
+          </span>
+        </mat-error>
+      </mat-form-field>
 
-  <!-- Optional -->
-  <!-- <mat-form-field appearance="outline" class="full">
-    <mat-select [(ngModel)]="role">
-      <mat-option value="ADMIN">Admin</mat-option>
-      <mat-option value="USER">User</mat-option>
-    </mat-select>
-  </mat-form-field> -->
+      <!-- EMAIL -->
+      <mat-form-field appearance="outline" class="full">
+        <input
+          matInput
+          placeholder="Email"
+          name="email"
+          [(ngModel)]="email"
+          required
+          email
+          #emailRef="ngModel">
 
-  <button
-    mat-raised-button
-    color="primary"
-    (click)="register()"
-    class="full">
-    Register
-  </button>
+        <mat-error *ngIf="emailRef.invalid && emailRef.touched">
+          <span *ngIf="emailRef.errors?.['required']">
+            Email is required
+          </span>
+          <span *ngIf="emailRef.errors?.['email']">
+            Enter a valid email
+          </span>
+        </mat-error>
+      </mat-form-field>
 
-  <p class="link">
-    Already have an account?
-    <a routerLink="/login">Login</a>
-  </p>
-</mat-card>
+      <!-- PASSWORD -->
+      <mat-form-field appearance="outline" class="full">
+        <input
+          matInput
+          type="password"
+          placeholder="Password"
+          name="password"
+          [(ngModel)]="password"
+          required
+          minlength="6"
+          #passwordRef="ngModel">
 
+        <mat-error *ngIf="passwordRef.invalid && passwordRef.touched">
+          <span *ngIf="passwordRef.errors?.['required']">
+            Password is required
+          </span>
+          <span *ngIf="passwordRef.errors?.['minlength']">
+            Minimum 6 characters required
+          </span>
+        </mat-error>
+      </mat-form-field>
+
+      <!-- REGISTER BUTTON -->
+      <button
+        mat-raised-button
+        color="primary"
+        class="full"
+        type="submit"
+        [disabled]="registerForm.invalid">
+        Register
+      </button>
+
+      <!-- LOGIN LINK -->
+      <p class="link">
+        Already have an account?
+        <a routerLink="/login">Login</a>
+      </p>
+
+    </form>
+  </mat-card>
 </div>
