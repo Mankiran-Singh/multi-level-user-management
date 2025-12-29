@@ -1,5 +1,3 @@
-const { v4: uuidv4 } = require("uuid");
-
 exports.generateCaptcha = () => {
   const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
   let captcha = "";
