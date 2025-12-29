@@ -200,3 +200,6 @@ Reusable UI components for consistency
 📝 Notes
 
 MongoDB Atlas used instead of local DB
+
+Email: admin@test.com
+Password: 123456
