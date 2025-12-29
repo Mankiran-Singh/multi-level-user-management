@@ -8,10 +8,11 @@ import { RechargeComponent } from './wallet/recharge/recharge.component';
 import { CreditComponent } from './wallet/credit/credit.component';
 import { StatementComponent } from './wallet/statement/statement.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { guestGuard } from './core/guards/guest.guard';
 
 export const routes: Routes = [
-   { path: 'login', component: LoginComponent },
-{ path: 'register', component: RegisterComponent },
+   { path: 'login', component: LoginComponent, canActivate: [guestGuard] },
+{ path: 'register', component: RegisterComponent, canActivate: [guestGuard] },
   {
     path: '',
     canActivate: [authGuard],

@@ -1,0 +1,18 @@
+<mat-toolbar color="primary">
+    <div>
+        <span class="title">Multi-Level User System</span>
+      
+        <span class="spacer"></span>
+      
+        <span *ngIf="user">
+          {{ user.name }} ({{ user.role }})
+        </span>
+    </div>
+
+  <button
+    mat-button
+    color="accent"
+    (click)="logout()">
+    Logout
+  </button>
+</mat-toolbar>

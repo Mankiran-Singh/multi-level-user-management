@@ -1,4 +1,3 @@
-// auth.controller.js
 const bcrypt = require("bcryptjs");
 const User = require("../users/user.model");
 const { generateCaptcha } = require("../../utils/captcha.util");
@@ -89,4 +88,10 @@ exports.getCaptcha = (req, res) => {
   res.json({
     captcha 
   });
+};
+
+exports.logout = (req, res) => {
+  res.clearCookie("token");
+  res.clearCookie("connect.sid");
+  res.json({ message: "Logged out" });
 };
